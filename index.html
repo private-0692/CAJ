@@ -1,47 +1,54 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="utf-8">
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>CAJ Corporation Construction</title>
-<style>
-:root{--green:#075b36;--dark:#032e1c;--gold:#d9ad35;--cream:#f5f3eb;--text:#17231c}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Arial,sans-serif;background:var(--cream);color:var(--text)}
-nav{position:sticky;top:0;z-index:20;background:#fff;padding:16px 6%;display:flex;justify-content:space-between;align-items:center;box-shadow:0 2px 15px #0001}.brand{font-weight:900;color:var(--green);font-size:18px}nav a{color:var(--text);text-decoration:none;font-weight:700;margin-left:18px}
-.hero{min-height:70vh;display:flex;align-items:center;padding:70px 7%;color:#fff;background:linear-gradient(90deg,#032e1cf0,#032e1c75),url("https://eightpointexteriors.com/wp-content/uploads/2024/10/IMG_2766-scaled.jpg") center/cover}.hero h1{font-size:clamp(42px,8vw,82px);max-width:900px;margin:10px 0}.tag{color:#f1cf68;font-weight:900;letter-spacing:3px}.hero p{font-size:20px;line-height:1.6;max-width:700px}.btn{display:inline-block;background:var(--gold);color:#17231c;text-decoration:none;font-weight:900;padding:14px 22px;border-radius:9px;margin-top:12px}
-section{padding:65px 7%}h2{font-size:34px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:22px}.card{background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 8px 25px #0001}.card img{width:100%;height:200px;object-fit:cover}.card .inside{padding:20px}.about{background:#fff}.contact{background:var(--dark);color:#fff}.form{max-width:650px;margin:auto;background:#fff;color:var(--text);padding:28px;border-radius:14px}.form label{font-weight:700;display:block;margin-top:8px}.form input,.form textarea,.form button{width:100%;padding:14px;margin:7px 0 15px;border-radius:8px;border:1px solid #ccd5ce;font:inherit}.form button{background:var(--gold);border:0;font-weight:900;cursor:pointer}.notice{font-size:13px;color:#68736c}footer{background:#021b10;color:#fff;text-align:center;padding:30px}
-</style>
+<title>Tu Marca | Experiencia Profesional</title>
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<nav><div class="brand" id="brand">CAJ CORPORATION CONSTRUCTION</div><div><a href="#services">Servicios</a><a href="#about">Nosotros</a><a href="#contact">Contacto</a></div></nav>
-<header class="hero"><div><div class="tag">PROFESSIONAL CONSTRUCTION</div><h1 id="title">CAJ Corporation Construction</h1><p id="subtitle">Roofing y construcción residencial con servicio profesional de principio a fin.</p><a class="btn" href="#contact">Solicitar cotización</a></div></header>
-<section id="services"><h2>Servicios</h2><div class="grid" id="servicesGrid"></div></section>
-<section id="about" class="about"><h2 id="aboutTitle">Construimos con confianza</h2><p id="aboutText">Soluciones profesionales para proyectos residenciales, con atención a los detalles y comunicación clara.</p></section>
-<section id="contact" class="contact"><div class="form"><h2>Solicita una cotización</h2><label>Nombre</label><input id="name" placeholder="Tu nombre"><label>Número</label><input id="phone" type="tel" placeholder="123456789"><label>Email</label><input id="email" type="email" placeholder="tuemail@gmail.com"><label>Mensaje</label><textarea id="message" rows="5" placeholder="Cuéntanos sobre tu proyecto"></textarea><button onclick="sendRequest()">Enviar solicitud</button><p class="notice">Al pulsar enviar se abrirá la aplicación de correo de tu dispositivo.</p><p id="status"></p></div></section>
-<footer>© 2026 <span id="footerName">CAJ Corporation Construction</span> · <span id="publicPhone">123456789</span> · <span id="publicEmail">tuemail@gmail.com</span></footer>
-<script>
-const defaults=[
-{title:"Roofing",text:"Instalación, reemplazo y reparación de techos.",img:"https://www.bsu-bau.at/schindeldach-fassaden/DCIM100MEDIADJI_0854.JPG"},
-{title:"Exterior Work",text:"Mejoras exteriores duraderas para tu hogar.",img:"https://images.bannerbear.com/direct/4mGpW3zwpg0ZK0AxQw/requests/000/111/137/324/DqR2v1kNaYMKmKmE68epZrOWP/0f4481ac2cad93ea4428d8e39c96571d0904f1a8.jpg"},
-{title:"Residential Construction",text:"Soluciones de construcción para proyectos residenciales.",img:"https://www.roofingcontractor.com/ext/resources/2024/10/16/Quickbolt-solar-roofing-business.jpg?height=635&t=1729878692&width=1200"}];
-function getData(){try{return JSON.parse(localStorage.getItem("cajSiteData"))||{}}catch(e){return {}}}
-function render(){
- const d=getData(), services=d.services||defaults;
- document.getElementById("brand").textContent=(d.name||"CAJ Corporation Construction").toUpperCase();
- document.getElementById("title").textContent=d.name||"CAJ Corporation Construction";
- document.getElementById("footerName").textContent=d.name||"CAJ Corporation Construction";
- document.getElementById("subtitle").textContent=d.subtitle||"Roofing y construcción residencial con servicio profesional de principio a fin.";
- document.getElementById("aboutTitle").textContent=d.aboutTitle||"Construimos con confianza";
- document.getElementById("aboutText").textContent=d.aboutText||"Soluciones profesionales para proyectos residenciales, con atención a los detalles y comunicación clara.";
- document.getElementById("publicPhone").textContent=d.phone||"123456789";
- document.getElementById("publicEmail").textContent=d.email||"tuemail@gmail.com";
- document.getElementById("servicesGrid").innerHTML=services.map(s=>`<article class="card"><img src="${s.img}" alt=""><div class="inside"><h3>${s.title}</h3><p>${s.text}</p></div></article>`).join("");
-}
-function sendRequest(){
- const d=getData(),to=d.email||"tuemail@gmail.com";
- const body=encodeURIComponent(`Nombre: ${name.value}\nNúmero: ${phone.value}\nEmail: ${email.value}\nMensaje: ${message.value}`);
- location.href=`mailto:${to}?subject=${encodeURIComponent("Nueva solicitud - CAJ Corporation Construction")}&body=${body}`;
-}
-render();
-</script>
-</body></html>
+<header class="header">
+  <a class="brand" href="#">TU<span>MARCA</span></a>
+  <button class="menu" aria-label="Abrir menú">☰</button>
+  <nav id="nav">
+    <a href="#inicio">Inicio</a><a href="#servicios">Servicios</a><a href="#galeria">Galería</a><a href="#informacion">Información</a><a href="#contacto">Contacto</a>
+  </nav>
+</header>
+
+<main>
+<section id="inicio" class="hero">
+  <img id="heroImage" class="hero-bg" alt="Imagen principal">
+  <div class="overlay"></div>
+  <div class="hero-content">
+    <p class="eyebrow">CALIDAD • DISEÑO • CONFIANZA</p>
+    <h1 id="heroTitle">Haz que tu proyecto destaque.</h1>
+    <p id="heroText">Una presencia digital moderna, elegante y pensada para dejar una gran impresión.</p>
+    <a class="btn" href="#contacto">Contáctanos</a>
+  </div>
+</section>
+
+<section id="servicios" class="section">
+  <div class="section-head"><p class="eyebrow">LO QUE OFRECEMOS</p><h2>Todo en un solo lugar</h2></div>
+  <div id="services" class="cards"></div>
+</section>
+
+<section id="galeria" class="section gallery-section">
+  <div class="section-head"><p class="eyebrow">NUESTRO TRABAJO</p><h2>Galería</h2></div>
+  <div id="gallery" class="gallery"></div>
+</section>
+
+<section id="informacion" class="info">
+  <div><p class="eyebrow">SOBRE NOSOTROS</p><h2 id="infoTitle">Profesionalidad que se nota.</h2></div>
+  <p id="infoText">Creamos experiencias que combinan una imagen moderna, información clara y una presentación que genera confianza. Esta sección se puede editar desde el Admin Panel.</p>
+</section>
+
+<section id="contacto" class="contact section">
+  <div><p class="eyebrow">HABLEMOS</p><h2>Contacto</h2><p id="contactText">Estamos listos para ayudarte.</p></div>
+  <div class="contact-box"><a id="phone" href="#">📞 +1 (000) 000-0000</a><a id="email" href="#">✉️ contacto@tumarca.com</a></div>
+</section>
+</main>
+
+<footer><span>© 2026 Tu Marca</span><span>Diseñado para crecer contigo.</span></footer>
+<script src="app.js"></script>
+</body>
+</html>
