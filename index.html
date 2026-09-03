@@ -3,12 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Tu Marca | Experiencia Profesional</title>
+<title>CAJ | Experiencia Profesional</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 <header class="header">
-  <a class="brand" href="#">TU<span>MARCA</span></a>
+  <a class="brand" href="#inicio"><span class="brand-mark">CAJ</span><span class="brand-name">CAJ</span></a>
   <button class="menu" aria-label="Abrir menú">☰</button>
   <nav id="nav">
     <a href="#inicio">Inicio</a><a href="#servicios">Servicios</a><a href="#galeria">Galería</a><a href="#informacion">Información</a><a href="#contacto">Contacto</a>
@@ -17,38 +19,63 @@
 
 <main>
 <section id="inicio" class="hero">
-  <img id="heroImage" class="hero-bg" alt="Imagen principal">
-  <div class="overlay"></div>
+  <div class="hero-shape shape-one"></div><div class="hero-shape shape-two"></div>
   <div class="hero-content">
-    <p class="eyebrow">CALIDAD • DISEÑO • CONFIANZA</p>
-    <h1 id="heroTitle">Haz que tu proyecto destaque.</h1>
-    <p id="heroText">Una presencia digital moderna, elegante y pensada para dejar una gran impresión.</p>
-    <a class="btn" href="#contacto">Contáctanos</a>
+    <div class="hero-top">
+      <span class="mini-label">CAJ • PROFESSIONAL EXPERIENCE</span>
+      <span class="mini-number">01 / 04</span>
+    </div>
+    <div class="language-zone english-zone">
+      <p class="eyebrow">ENGLISH</p>
+      <h1 id="heroTitleEN">Make your project <em>stand out.</em></h1>
+      <p id="heroTextEN">A clean, professional digital experience built to make a strong first impression.</p>
+    </div>
+    <div class="language-divider"></div>
+    <div class="language-zone spanish-zone">
+      <p class="eyebrow">ESPAÑOL</p>
+      <h2 id="heroTitleES">Haz que tu proyecto <em>destaque.</em></h2>
+      <p id="heroTextES">Una experiencia digital limpia y profesional, creada para causar una gran primera impresión.</p>
+    </div>
+    <div class="hero-actions">
+      <a class="btn primary" href="#contacto">Contáctanos</a>
+      <button class="translator" id="translator" type="button">🌐 English / Español</button>
+    </div>
+  </div>
+  <div class="hero-card">
+    <div class="house-logo"><div class="roof"></div><div class="house-body"></div><div class="door"></div></div>
+    <strong>CAJ</strong><span>Built with purpose.</span>
   </div>
 </section>
 
+<section class="green-strip">
+  <div><strong>01</strong><span>Idea</span></div><div><strong>02</strong><span>Diseño</span></div><div><strong>03</strong><span>Calidad</span></div><div><strong>04</strong><span>Resultado</span></div>
+</section>
+
 <section id="servicios" class="section">
-  <div class="section-head"><p class="eyebrow">LO QUE OFRECEMOS</p><h2>Todo en un solo lugar</h2></div>
+  <div class="section-head"><div><p class="eyebrow dark">SERVICES / SERVICIOS</p><h2>Pequeños detalles.<br><span>Grandes resultados.</span></h2></div><p class="lead">Una presentación profesional con espacios para textos grandes, títulos pequeños y contenido claro.</p></div>
   <div id="services" class="cards"></div>
 </section>
 
 <section id="galeria" class="section gallery-section">
-  <div class="section-head"><p class="eyebrow">NUESTRO TRABAJO</p><h2>Galería</h2></div>
-  <div id="gallery" class="gallery"></div>
+  <div class="section-head"><div><p class="eyebrow dark">SHOWCASE</p><h2>Una portada que<br><span>se recuerda.</span></h2></div><p class="lead">Diseños visuales sin depender de fotografías externas.</p></div>
+  <div class="visual-gallery">
+    <div class="visual visual-a"><small>CAJ / 01</small><strong>BUILD<br>BETTER.</strong></div>
+    <div class="visual visual-b"><small>CAJ / 02</small><strong>PURE<br>DESIGN.</strong></div>
+    <div class="visual visual-c"><small>CAJ / 03</small><strong>MOVE<br>FORWARD.</strong></div>
+  </div>
 </section>
 
 <section id="informacion" class="info">
   <div><p class="eyebrow">SOBRE NOSOTROS</p><h2 id="infoTitle">Profesionalidad que se nota.</h2></div>
-  <p id="infoText">Creamos experiencias que combinan una imagen moderna, información clara y una presentación que genera confianza. Esta sección se puede editar desde el Admin Panel.</p>
+  <div><p class="info-big" id="infoText">Creamos experiencias que combinan una imagen moderna, información clara y una presentación que genera confianza.</p><p class="info-small">Contenido editable • Diseño responsive • Experiencia clara</p></div>
 </section>
 
 <section id="contacto" class="contact section">
-  <div><p class="eyebrow">HABLEMOS</p><h2>Contacto</h2><p id="contactText">Estamos listos para ayudarte.</p></div>
-  <div class="contact-box"><a id="phone" href="#">📞 +1 (000) 000-0000</a><a id="email" href="#">✉️ contacto@tumarca.com</a></div>
+  <div><p class="eyebrow dark">HABLEMOS</p><h2>Contacto</h2><p id="contactText">Estamos listos para ayudarte.</p></div>
+  <div class="contact-box"><a id="phone" href="#">📞 +1 (000) 000-0000</a><a id="email" href="#">✉️ contacto@caj.com</a></div>
 </section>
 </main>
-
-<footer><span>© 2026 Tu Marca</span><span>Diseñado para crecer contigo.</span></footer>
+<footer><span>© 2026 CAJ</span><span>Professional experience.</span></footer>
 <script src="app.js"></script>
 </body>
 </html>
